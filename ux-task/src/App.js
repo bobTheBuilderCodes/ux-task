@@ -4,18 +4,22 @@ import products from "./productsData";
 function App() {
   console.log(products);
   return (
-    <div className="App">
-      {products.map((product) => (
+    <>
+    <input placeholder="Search for a product" />
+    <div className="productContainer">
+      {products.map(({id, productName , price , discountPrice, imageUrl, description , isOpen}) => (
         <ProductCard
-          key={product.id}
-          name={product.productName}
-          price={product.price}
-          discountPrice={product.discountPrice}
-          imageUrl={product.imageUrl}
+        key={id}
+        name={productName}
+        description={description}
+        price={price}
+        discountPrice={discountPrice}
+        imageUrl={imageUrl}
+        isOpen={isOpen}
         />
-      ))}
-      <h1>Hello</h1>
+        ))}
     </div>
+        </>
   );
 }
 
